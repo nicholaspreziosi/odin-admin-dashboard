@@ -19,13 +19,13 @@ body {
 }
 
 .sidebar > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 48px;
+    display: grid;
+    grid-template-rows: 50px 250px 150px;
+    grid-gap: 48px;
     padding: 24px;
     font-size: 12pt;
     font-weight: bold;
+    justify-content: start;
 }
 
 .sidebar > div > div > div {
@@ -43,13 +43,13 @@ body {
 
 .sidebar-group1 > div,
 .sidebar-group2 > div {
-    display: flex;
+    display: grid;
     align-items: center;
     gap: 24px;
 }
 
 .sidebar-title {
-    display: flex;
+    display: grid;
     align-items: center;
     gap: 12px;
     margin-left: -12px;
@@ -80,18 +80,23 @@ body {
     font-size: 14px;
 }
 
+.top-row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 48px;
+}
+
 .top-row input {
     font-size: 18px;
     background-color: #e2e8f0;;
     border-radius: 12px;
     border: none;
-    display: flex;
-    flex: 1 1 50px;
+    display: grid;
     max-width: 30rem;
 }
 
 .top-row img[src$='.svg'] {
-    max-width: 25px;
+    width: 25px;
 }
 
 .top-row img[src="images/surf.jpg"] {
@@ -101,23 +106,26 @@ body {
 }
 
 .top-row > div {
-    display: flex;
-    gap: 24px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 24px;
+}
+
+.search,
+.profile {
+    display: grid;
+    grid-auto-flow: column;
     align-items: center;
+    grid-gap: 24px;
+} 
+
+.search {
+    justify-content: start;
+    grid-template-columns: 25px repeat(1, minmax(10rem, 30rem));
 }
 
-
-.top-row > div:first-child {
-    flex: 2 2 60px;
-    max-width: 40rem;
-}
-
-.top-row:last-child {
-    flex: 1 1 50px;
-}
-
-.top-row > div > p {
-    width: 120px;
+.profile {
+    justify-content: end;
 }
 
 .bottom-row > div > div > p {
@@ -125,16 +133,18 @@ body {
 }
 
 .greeting {
-    display: flex;
-    align-items: center;
-    gap: 18px;
+    display: grid;
+    grid-auto-flow: column;
+    align-content: center;
+    justify-content: start;
+    grid-gap: 24px;
 }
 
 .greeting > div {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .greeting > div > p {
@@ -148,9 +158,11 @@ body {
 }
 
 .btn {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-auto-flow: column;
+    align-content: center;
+    justify-content: end;
+    grid-gap: 24px;
 }
 
 .btn button{
@@ -164,19 +176,11 @@ body {
     padding: 12px 24px;
 }
 
-.top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
-}
+
 
 .bottom-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
+    display: grid;
+    grid-auto-flow: column;
 }
 
 .projects {
@@ -224,15 +228,19 @@ body {
     grid-row: 3 / -1;
     background-color: #e2e8f0;
     padding: 12px 24px 48px 12px;
-    display: flex;
+    display: grid;
 }
 
 .announcements-title {
     grid-column: 4;
     grid-row: 2 / -1;
     background-color: #e2e8f0;
-    padding: 30px 12px 12px 12px;
+    padding: 30px 12px 12px 0;
     font-weight: bold;
+}
+
+.announcements-title > div {
+    padding-left: 12px;
 }
 
 .announcements,
@@ -241,35 +249,28 @@ body {
     padding: 24px;
     box-shadow: 0px 3px 8px -2px #565d6899;
     border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 12px;
+    display: grid;
 }
+
 
 .cards > div > div > div {
     font-weight: bold;
 }
 
 .sidebar-right > div {
-    display: flex;
-    gap: 12px;
-    flex: 1 1 auto;
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
 }
 
 .trending-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    display: grid;
 }
 
 .trending-title {
     font-weight: bold;
-    justify-content: flex-end;
     padding-bottom: 12px;
-    padding-top: 18px;
+    padding-top: 30px;
+    display: grid;
+    align-items: end;
 }
 
 .img-container {
@@ -285,8 +286,8 @@ body {
 
 .line {
     border-bottom: 1px solid grey;
-    margin: 0;
-    padding: 0;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 .announcements > div > p,
@@ -309,6 +310,7 @@ body {
 .trending > div {
     display: flex;
     gap: 12px;
+    padding: 6px;
     align-items: center;
 }
 
